@@ -42,6 +42,7 @@ a {
     padding-top: 24px;
     padding-bottom: 24px;
     border-bottom: 1px solid #e7e9fc;
+    box-shadow: зі значенням 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 .header-container {
     display: flex;
@@ -70,7 +71,7 @@ a {
     font-size: 18px;
     line-height: 1.17;
     letter-spacing: 0.03em;
-    color: var(--primary-brand-color);
+    color: var(--pressed-state-color);
 }
 
 .header-logo-studio {
@@ -99,7 +100,7 @@ a {
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: 0.02em;
-    color: var(--navy-blue-color);
+    color: #404bbf;
     text-decoration: none;
     padding: 24px 0;
     position: relative;
@@ -111,7 +112,7 @@ a {
     display: block;
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
     width: 100%;
     height: 4px;
@@ -156,7 +157,7 @@ a {
     background-repeat: no-repeat;
     background-color: var(--navy-blue-color);
     background-position: center;
-    block-size: cover;
+    background-size: cover;
     
     
 }
@@ -317,7 +318,7 @@ a {
 }
 
 .team-inf {
-    padding: 32px 16px;
+    padding: 32px 0px;
 }
 
 .team-networks {
@@ -369,31 +370,63 @@ a {
     margin-bottom: 8px;
 }
 
+.team-networks-link {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-brand-color);
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+}
 
+.team-networks-link:hover,
+.team-networks-link:focus {
+    background-color: #404bbf;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.customers {
+    padding: 120px 0;
+}
 .customers-list {
     display: flex;
     justify-content: space-between;
     gap: 24px;
-    margin-bottom: 120px;
-    
+    margin-bottom: 120px;   
 }
 
+.customers-link {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #8e8f99;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--border-color);
 
+}
 
+.customers-link:hover,
+.customers-link:focus {
+    border-color:var(--pressed-state-color);
+    color: var(--pressed-state-color);
+}
 
-.customers-thumb {
+.customers-item {
     display: flex;
     border-radius: 4px;
     border: 1px solid var(--border-color);
-    width: 168px;
+    width: calc((100% - 120px) / 6);;
     height: 88px;
     justify-content: center;
-    align-items: center;y
+    align-items: center;
     
     
 }
-.customers-thumb:hover,
-.customers-thumb:focus {
+.customers-item:hover,
+.customers-item:focus {
     border: 1px solid var(--pressed-state-color);
     
 }
@@ -403,7 +436,7 @@ a {
     
 }
 .customers-icon {
-    fill: var(--border-color);
+    fill: currentColor;
 }
 
 
@@ -439,6 +472,7 @@ a {
 
 .footer-container {
     display: flex;
+    align-items: baseline;
 }
 
 .foot-cont-logo {
@@ -451,6 +485,12 @@ a {
     line-height: 24px;
     letter-spacing: 0.32px;
     margin-bottom: 16px;
+}
+
+.foot-team-networks {
+    display: flex;
+    gap: 16px
+
 }
 
 .filters {
@@ -565,7 +605,7 @@ a {
     width: 100%;
     height: 100%;
     background-color: rgba(46, 47, 66, 0.4);
-    transition: opacity 300ms ease-out, visibility 250ms ease-out;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -583,20 +623,27 @@ a {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translate(-50%, -50%) scale(1);
     width: 408px;
-    height: 584px;
+    min-height: 584px;
     border-radius: 4px;
     background-color: #FCFCFC;
     box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.20),
         0px 1px 3px 0px rgba(0, 0, 0, 0.12),
         0px 1px 1px 0px rgba(0, 0, 0, 0.14);
     transition: opacity 300ms ease-out 250ms, transform 300ms ease-out 250ms;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
 }
 
 .modal-icon {
     stroke: var(--navy-blue-color);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-icon:hover,
+.modal-icon:focus {
+    fill: var(--white-background-color)
 }
 .modal-btn {
     display: flex;
@@ -605,11 +652,19 @@ a {
     position: absolute;
     top: 24px;
     right: 24px;
-    background-color: transparent;
+    background-color: #e7e9fc;
     width: 24px;
     height: 24px;
-    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 0;
     cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
+}
+
+.modal-btn:hover,
+.modal-btn:focus {
+    border: none;
+    background-color: var(--pressed-state-color);
 }
