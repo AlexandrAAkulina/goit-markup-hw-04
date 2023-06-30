@@ -666,7 +666,7 @@ a {
 
 .modal-icon:hover,
 .modal-icon:focus {
-    fill: var(--white-background-color)
+    fill: var(--white-background-color);
 }
 .modal-btn {
     display: flex;
