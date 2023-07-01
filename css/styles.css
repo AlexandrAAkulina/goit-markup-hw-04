@@ -421,8 +421,8 @@ a {
     display: flex;
     border-radius: 4px;
     border: 1px solid var(--border-color);
-    min-width: 168px;
-    min-height: 88px;
+    width: 168px;
+    height: 88px;
     justify-content: center;
     align-items: center;
     
