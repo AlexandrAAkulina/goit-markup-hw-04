@@ -420,7 +420,7 @@ a {
 .customers-item {
     display: flex;
     border-radius: 4px;
-    border: 1px solid var(--border-color);
+    /*border: 1px solid var(--border-color);*/
     width: 168px;
     height: 88px;
     justify-content: center;
